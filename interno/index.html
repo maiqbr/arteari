@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arte Ari — Catálogo Interno</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#0f0d0a" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -28,6 +31,9 @@
     }
 
     html { scroll-behavior: smooth; }
+    :focus-visible { outline: 3px solid var(--gold2); outline-offset: 3px; }
+    .skip-link { position: fixed; top: 0.5rem; left: 0.5rem; z-index: 3000; padding: 0.7rem 1rem; background: var(--gold2); color: #0f0d0a; border-radius: 4px; transform: translateY(-150%); }
+    .skip-link:focus { transform: translateY(0); }
 
     body {
       background: var(--bg);
@@ -504,13 +510,18 @@
       #instrucoes > div > div:first-of-type + div { grid-template-columns: 1fr !important; }
       .tip-boxes-row { grid-template-columns: 1fr !important; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#produtos">Pular para o conteúdo</a>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Arte<span>Ari</span></a>
+<nav aria-label="Navegação interna">
+  <a href="./" class="nav-logo" aria-label="Arte Ari interno — início">Arte<span>Ari</span></a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#produtos">Produtos</a></li>
@@ -524,7 +535,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-circle"><img src="foto-ari.png" alt="Ari — Arte Ari" /></div>
+  <div class="hero-circle"><img src="../foto-ari.webp" alt="Ari, artista da Arte Ari" width="828" height="1092" fetchpriority="high" /></div>
   <div class="hero-content">
     <span class="hero-eyebrow">✦ Catálogo interno</span>
     <h1>Arte que<em>transforma</em>memórias.</h1>
@@ -547,7 +558,7 @@
       <h2>Cada pintura conta<em>uma história</em></h2>
       <p>A Arte Ari nasceu da paixão por transformar momentos especiais em obras únicas. Cada peça é pintada à mão com dedicação e cuidado, pensada especialmente para quem vai recebê-la.</p>
       <p>Seja um retrato do seu pet, uma decoração para sua parede ou um presente inesquecível — aqui você encontra arte personalizada de verdade.</p>
-      <a href="#" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Fazer uma encomenda</a>
+      <a href="#personalize" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Montar pedido interno</a>
     </div>
     <div class="about-features">
       <div class="feature">
@@ -578,8 +589,8 @@
 
 
 <!-- LIGHTBOX -->
-<div id="lightbox-overlay" role="dialog" aria-modal="true">
-  <div id="lightbox-box">
+<div id="lightbox-overlay" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
+  <div id="lightbox-box" tabindex="-1">
     <button id="lb-close" aria-label="Fechar">✕</button>
     <div id="lightbox-img-wrap">
       <img id="lb-main-img" src="" alt="" />
@@ -619,10 +630,10 @@
          data-title="Pintura Pet (Chaveiro 4cm)"
          data-price="R$ 35,00"
          data-wpp="Tenho+interesse+no+Pintura+Pet+(Chaveiro+4cm)"
-         data-images="[&quot;img/produtos/chaveiro-1.webp&quot;,&quot;img/produtos/chaveiro-2.webp&quot;,&quot;img/produtos/chaveiro-3.webp&quot;,&quot;img/produtos/chaveiro-4.webp&quot;,&quot;img/produtos/chaveiro-5.webp&quot;,&quot;img/produtos/chaveiro-6.webp&quot;,&quot;img/produtos/chaveiro-7.webp&quot;,&quot;img/produtos/chaveiro-8.webp&quot;,&quot;img/produtos/chaveiro-9.webp&quot;,&quot;img/produtos/chaveiro-10.webp&quot;,&quot;img/produtos/chaveiro-11.webp&quot;,&quot;img/produtos/chaveiro-12.webp&quot;,&quot;img/produtos/chaveiro-13.webp&quot;,&quot;img/produtos/chaveiro-14.webp&quot;,&quot;img/produtos/chaveiro-15.webp&quot;,&quot;img/produtos/chaveiro-16.webp&quot;,&quot;img/produtos/chaveiro-17.webp&quot;,&quot;img/produtos/chaveiro-18.webp&quot;,&quot;img/produtos/chaveiro-19.webp&quot;,&quot;img/produtos/chaveiro-20.webp&quot;,&quot;img/produtos/chaveiro-21.webp&quot;,&quot;img/produtos/chaveiro-22.webp&quot;,&quot;img/produtos/chaveiro-23.webp&quot;,&quot;img/produtos/chaveiro-24.webp&quot;,&quot;img/produtos/chaveiro-25.webp&quot;,&quot;img/produtos/chaveiro-26.webp&quot;]">
+         data-images="[&quot;../img/produtos/chaveiro-1.webp&quot;,&quot;../img/produtos/chaveiro-2.webp&quot;,&quot;../img/produtos/chaveiro-3.webp&quot;,&quot;../img/produtos/chaveiro-4.webp&quot;,&quot;../img/produtos/chaveiro-5.webp&quot;,&quot;../img/produtos/chaveiro-6.webp&quot;,&quot;../img/produtos/chaveiro-7.webp&quot;,&quot;../img/produtos/chaveiro-8.webp&quot;,&quot;../img/produtos/chaveiro-9.webp&quot;,&quot;../img/produtos/chaveiro-10.webp&quot;,&quot;../img/produtos/chaveiro-11.webp&quot;,&quot;../img/produtos/chaveiro-12.webp&quot;,&quot;../img/produtos/chaveiro-13.webp&quot;,&quot;../img/produtos/chaveiro-14.webp&quot;,&quot;../img/produtos/chaveiro-15.webp&quot;,&quot;../img/produtos/chaveiro-16.webp&quot;,&quot;../img/produtos/chaveiro-17.webp&quot;,&quot;../img/produtos/chaveiro-18.webp&quot;,&quot;../img/produtos/chaveiro-19.webp&quot;,&quot;../img/produtos/chaveiro-20.webp&quot;,&quot;../img/produtos/chaveiro-21.webp&quot;,&quot;../img/produtos/chaveiro-22.webp&quot;,&quot;../img/produtos/chaveiro-23.webp&quot;,&quot;../img/produtos/chaveiro-24.webp&quot;,&quot;../img/produtos/chaveiro-25.webp&quot;,&quot;../img/produtos/chaveiro-26.webp&quot;]">
 
       <div class="product-img-wrap">
-        <img src="img/produtos/chaveiro-1.webp" alt="Pintura Pet Chaveiro 4cm" loading="lazy" />
+        <img src="../img/produtos/chaveiro-1.webp" alt="Pintura Pet Chaveiro 4cm" loading="lazy" />
         <span class="product-badge">Destaque</span>
         <span class="product-gallery-hint">🖼 ver galeria</span>
       </div>
@@ -641,10 +652,10 @@
          data-title="Pintura Pet (Pinus 30x30cm)"
          data-price="R$ 240,00"
          data-wpp="Tenho+interesse+na+Pintura+Pet+(Pinus+30x30cm)"
-         data-images="[&quot;img/produtos/pinus-30x30-1.webp&quot;,&quot;img/produtos/pinus-30x30-2.webp&quot;,&quot;img/produtos/pinus-30x30-3.webp&quot;,&quot;img/produtos/pinus-30x30-4.webp&quot;,&quot;img/produtos/pinus-30x30-5.webp&quot;,&quot;img/produtos/pinus-30x30-6.webp&quot;,&quot;img/produtos/pinus-30x30-7.webp&quot;,&quot;img/produtos/pinus-30x30-8.webp&quot;,&quot;img/produtos/pinus-30x30-9.webp&quot;,&quot;img/produtos/pinus-30x30-10.webp&quot;,&quot;img/produtos/pinus-30x30-11.webp&quot;,&quot;img/produtos/pinus-30x30-12.webp&quot;,&quot;img/produtos/pinus-30x30-13.webp&quot;,&quot;img/produtos/pinus-30x30-14.webp&quot;,&quot;img/produtos/pinus-30x30-15.webp&quot;,&quot;img/produtos/pinus-30x30-16.webp&quot;]">
+         data-images="[&quot;../img/produtos/pinus-30x30-1.webp&quot;,&quot;../img/produtos/pinus-30x30-2.webp&quot;,&quot;../img/produtos/pinus-30x30-3.webp&quot;,&quot;../img/produtos/pinus-30x30-4.webp&quot;,&quot;../img/produtos/pinus-30x30-5.webp&quot;,&quot;../img/produtos/pinus-30x30-6.webp&quot;,&quot;../img/produtos/pinus-30x30-7.webp&quot;,&quot;../img/produtos/pinus-30x30-8.webp&quot;,&quot;../img/produtos/pinus-30x30-9.webp&quot;,&quot;../img/produtos/pinus-30x30-10.webp&quot;,&quot;../img/produtos/pinus-30x30-11.webp&quot;,&quot;../img/produtos/pinus-30x30-12.webp&quot;,&quot;../img/produtos/pinus-30x30-13.webp&quot;,&quot;../img/produtos/pinus-30x30-14.webp&quot;,&quot;../img/produtos/pinus-30x30-15.webp&quot;,&quot;../img/produtos/pinus-30x30-16.webp&quot;]">
 
       <div class="product-img-wrap">
-        <img src="img/produtos/pinus-30x30-1.webp" alt="Pintura Pet Pinus 30x30cm" loading="lazy" />
+        <img src="../img/produtos/pinus-30x30-1.webp" alt="Pintura Pet Pinus 30x30cm" loading="lazy" />
         <span class="product-gallery-hint">🖼 ver galeria</span>
       </div>
       <div class="product-info">
@@ -662,10 +673,10 @@
          data-title="Pintura Pet (Pinus 20x20cm)"
          data-price="R$ 170,00"
          data-wpp="Tenho+interesse+na+Pintura+Pet+(Pinus+20x20cm)"
-         data-images="[&quot;img/produtos/pinus-20x20-1.webp&quot;,&quot;img/produtos/pinus-20x20-2.webp&quot;,&quot;img/produtos/pinus-20x20-3.webp&quot;,&quot;img/produtos/pinus-20x20-4.webp&quot;,&quot;img/produtos/pinus-20x20-5.webp&quot;,&quot;img/produtos/pinus-20x20-6.webp&quot;,&quot;img/produtos/pinus-20x20-7.webp&quot;,&quot;img/produtos/pinus-20x20-8.webp&quot;,&quot;img/produtos/pinus-20x20-9.webp&quot;,&quot;img/produtos/pinus-20x20-10.webp&quot;,&quot;img/produtos/pinus-20x20-11.webp&quot;,&quot;img/produtos/pinus-20x20-12.webp&quot;,&quot;img/produtos/pinus-20x20-13.webp&quot;]">
+         data-images="[&quot;../img/produtos/pinus-20x20-1.webp&quot;,&quot;../img/produtos/pinus-20x20-2.webp&quot;,&quot;../img/produtos/pinus-20x20-3.webp&quot;,&quot;../img/produtos/pinus-20x20-4.webp&quot;,&quot;../img/produtos/pinus-20x20-5.webp&quot;,&quot;../img/produtos/pinus-20x20-6.webp&quot;,&quot;../img/produtos/pinus-20x20-7.webp&quot;,&quot;../img/produtos/pinus-20x20-8.webp&quot;,&quot;../img/produtos/pinus-20x20-9.webp&quot;,&quot;../img/produtos/pinus-20x20-10.webp&quot;,&quot;../img/produtos/pinus-20x20-11.webp&quot;,&quot;../img/produtos/pinus-20x20-12.webp&quot;,&quot;../img/produtos/pinus-20x20-13.webp&quot;]">
 
       <div class="product-img-wrap">
-        <img src="img/produtos/pinus-20x20-1.webp" alt="Pintura Pet Pinus 20x20cm" loading="lazy" />
+        <img src="../img/produtos/pinus-20x20-1.webp" alt="Pintura Pet Pinus 20x20cm" loading="lazy" />
         <span class="product-gallery-hint">🖼 ver galeria</span>
       </div>
       <div class="product-info">
@@ -865,18 +876,13 @@
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;" id="entrega-grid">
 
               <div style="grid-column:1/-1;">
-                <label class="field-label">Nome completo</label>
-                <input id="ent-nome" type="text" placeholder="Nome do cliente" class="field-input" oninput="updateResumo()"/>
+                <label class="field-label" for="ent-nome">Nome ou identificação do cliente</label>
+                <input id="ent-nome" type="text" placeholder="Primeiro nome ou apelido" class="field-input" autocomplete="off" oninput="updateResumo()"/>
               </div>
 
               <div>
-                <label class="field-label">CPF</label>
-                <input id="ent-cpf" type="text" placeholder="000.000.000-00" class="field-input" maxlength="14" oninput="maskCPF(this);updateResumo()"/>
-              </div>
-
-              <div>
-                <label class="field-label">Celular</label>
-                <input id="ent-cel" type="text" placeholder="(00) 00000-0000" class="field-input" maxlength="15" oninput="maskPhone(this);updateResumo()"/>
+                <label class="field-label" for="ent-cel">Celular</label>
+                <input id="ent-cel" type="tel" placeholder="(00) 00000-0000" class="field-input" maxlength="15" autocomplete="tel" oninput="maskPhone(this);updateResumo()"/>
               </div>
 
               <div>
@@ -928,7 +934,7 @@
       <div id="fundo-resumo" style="padding:1.2rem 1.5rem;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;min-height:60px;">
         <div id="resumo-texto" style="font-size:0.82rem;color:var(--muted);font-style:italic;">Nenhuma seleção ainda — escolha elementos e cores acima.</div>
         <button id="gerar-pdf-btn" onclick="gerarPDF()" style="display:none;align-items:center;gap:0.5rem;background:var(--gold);color:#0f0d0a;padding:0.7rem 1.3rem;border-radius:6px;border:none;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;white-space:nowrap;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          ⬇ Gerar PDF do pedido
+          ⬇ Gerar PDF local do pedido
         </button>
       </div>
 
@@ -1375,7 +1381,6 @@
 
         // entrega
         const entNome   = document.getElementById('ent-nome')?.value.trim()   || '';
-        const entCpf    = document.getElementById('ent-cpf')?.value.trim()    || '';
         const entCel    = document.getElementById('ent-cel')?.value.trim()    || '';
         const entCep    = document.getElementById('ent-cep')?.value.trim()    || '';
         const entRua    = document.getElementById('ent-rua')?.value.trim()    || '';
@@ -1387,7 +1392,6 @@
         const temEntrega = entNome || entCpf || entCel || entCep;
         if (temEntrega) {
           if (entNome)   partes.push(`<strong style="color:var(--cream);">Cliente:</strong> ${entNome}`);
-          if (entCpf)    partes.push(`<strong style="color:var(--cream);">CPF:</strong> ${entCpf}`);
           if (entCel)    partes.push(`<strong style="color:var(--cream);">Celular:</strong> ${entCel}`);
           const end = [entRua + (entNum ? ', '+entNum : ''), entComp, entBairro, entCidade + (entEstado ? ' - '+entEstado : ''), entCep].filter(Boolean).join(' | ');
           if (end.trim()) partes.push(`<strong style="color:var(--cream);">Endereço:</strong> ${end}`);
@@ -1692,8 +1696,10 @@
   const lbThumbs  = document.getElementById('lightbox-thumbs');
   const lbCounter = document.getElementById('lightbox-counter');
   let lbImages = [], lbIndex = 0;
+  let lightboxTrigger = null;
 
   function openLightbox(card) {
+    lightboxTrigger = card;
     const raw = (card.dataset.images || '[]').replace(/&quot;/g, '"');
     lbImages = JSON.parse(raw);
     if (!lbImages.length) return;
@@ -1703,7 +1709,9 @@
     // lbWpp removed in internal version
     renderLightbox();
     overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    document.getElementById('lightbox-box').focus();
   }
 
   function renderLightbox() {
@@ -1725,7 +1733,9 @@
 
   function closeLightbox() {
     overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lightboxTrigger) lightboxTrigger.focus();
   }
 
   function lbPrev() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; renderLightbox(); }
@@ -1740,11 +1750,21 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') lbPrev();
     if (e.key === 'ArrowRight') lbNext();
+    if (e.key === 'Tab') {
+      const focusable = [...overlay.querySelectorAll('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')].filter(el => el.offsetParent !== null);
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   // open on card click (not on wpp button)
   document.querySelectorAll('.product-card[data-images]').forEach(card => {
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Ver galeria de ' + card.dataset.title);
     card.addEventListener('click', () => openLightbox(card));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(card); } });
   });
 
   // swipe support
@@ -1791,11 +1811,6 @@
   });
 
       // ── INPUT MASKS ──
-      window.maskCPF = function(el) {
-        let v = el.value.replace(/\D/g,'').slice(0,11);
-        v = v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-        el.value = v;
-      };
       window.maskPhone = function(el) {
         let v = el.value.replace(/\D/g,'').slice(0,11);
         v = v.length > 10
@@ -1847,7 +1862,7 @@
         const dataHora = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
 
         // separate pedido lines from entrega lines
-        const entregaKeys = ['Cliente','CPF','Celular','Endereço'];
+        const entregaKeys = ['Cliente','Celular','Endereço'];
         const pedidoLinhas = dados.filter(l => !entregaKeys.some(k => l.startsWith(k)));
         const entregaLinhas = dados.filter(l => entregaKeys.some(k => l.startsWith(k)));
 
@@ -1913,3 +1928,4 @@ ${entregaLinhas.length ? '<h2>Dados de entrega</h2><div>' + renderLinhas(entrega
 </script>
 </body>
 </html>
+

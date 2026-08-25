@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /interno/
+
+Sitemap: https://arteari.com.br/sitemap.xml
+
