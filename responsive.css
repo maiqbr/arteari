@@ -1,0 +1,64 @@
+/* Shared by the public and internal catalogs. Keep small screens usable at zoom. */
+html { scroll-padding-top: 6rem; }
+img { max-width: 100%; }
+.elem-card, .cor-btn { font: inherit; color: inherit; min-height: 44px; }
+.cor-btn { min-width: 44px; }
+.lb-thumb { padding: 0; background: transparent; cursor: pointer; }
+.about-inner > *, .contact-section > *, .feature > *, #fundo-resumo > * { min-width: 0; }
+button, a, input, select, textarea { touch-action: manipulation; }
+.nav-toggle, .cat-btn, .toggle-btn, .btn-primary, .btn-secondary, .btn-wpp,
+.nav-wpp, #lightbox-wpp, #gerar-pdf-btn, #fundo-wpp { min-height: 44px; }
+#qty-minus, #qty-plus { width: 44px !important; height: 44px !important; flex-shrink: 0; }
+#qty-display { height: 44px !important; }
+input:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold2) !important; outline-offset: 3px; }
+.nav-toggle { display: none; background: transparent; color: var(--gold); border: 1px solid var(--border); border-radius: 6px; font-size: 1.4rem; width: 44px; cursor: pointer; }
+#lightbox-overlay { padding: 12px; padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+#lightbox-box { max-width: 860px; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; }
+#lightbox-img-wrap { aspect-ratio: auto; height: min(65vh, 650px); height: min(65dvh, 650px); }
+#lightbox-img-wrap img { object-fit: contain; }
+#lb-close, .lb-arrow { width: 44px; height: 44px; }
+#lightbox-thumbs { flex-shrink: 0; }
+#lightbox-info { overflow-wrap: anywhere; }
+#lightbox-wpp { white-space: normal; }
+#lightbox-img-wrap { touch-action: pan-y pinch-zoom; }
+@media (max-width: 1100px) {
+  nav { padding-inline: 1.25rem; gap: 1rem; }
+  .nav-links { gap: 1rem; }
+  .about-inner, .contact-section { gap: 2.5rem; }
+}
+@media (max-width: 900px) {
+  nav .nav-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; }
+  nav .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 1rem 1.2rem; background: #0f0d0a; border-bottom: 1px solid var(--border); flex-direction: column; gap: 0; max-height: calc(100dvh - 85px); overflow-y: auto; }
+  nav .nav-links.open { display: flex; }
+  nav .nav-links a { display: block; padding: .8rem 0; min-height: 44px; }
+}
+@media (max-width: 768px) {
+  input, select, textarea { font-size: 16px !important; min-height: 44px; }
+  #personalize, #instrucoes { padding: 3rem 1.2rem !important; }
+  .products-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+  .catalog-callout { padding: 0 1.2rem 3rem !important; }
+  .catalog-callout > div { padding: 1.25rem !important; }
+  .catalog-callout > div > div { min-width: 0 !important; }
+  #instrucoes > div > div[style*="display:grid"] { grid-template-columns: minmax(0, 1fr) !important; }
+  #fundo-resumo { padding: 1rem !important; }
+  #fundo-wpp, #gerar-pdf-btn { white-space: normal !important; max-width: 100%; justify-content: center; }
+  #resumo-texto, .contact-link, footer { overflow-wrap: anywhere; }
+  .hero-content { max-width: 100%; }
+  .hero-circle { opacity: .25; }
+  .hero-desc { color: #b9ae98; }
+  .hero-ctas { flex-wrap: wrap; }
+  .toggle-btn { white-space: normal; max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .nav-wpp { padding: .6rem .75rem; font-size: .75rem; }
+  .hero h1 { font-size: clamp(2.6rem, 12vw, 3.7rem); }
+  .hero-ctas > a { width: 100%; text-align: center; justify-content: center; }
+  #elementos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  #lightbox-info { padding: 1rem; }
+  #lightbox-wpp { width: 100%; justify-content: center; }
+  #lightbox-img-wrap { height: min(48dvh, 380px); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  #lightbox-box { max-width: 640px; }
+  #lightbox-img-wrap { height: 65dvh; }
+}

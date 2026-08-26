@@ -547,6 +547,7 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
   </style>
+  <link rel="stylesheet" href="responsive.css" />
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -813,7 +814,7 @@
   </div>
 
   <!-- Box pendurador -->
-  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem 4rem;">
+  <div class="catalog-callout" style="max-width:1400px;margin:0 auto;padding:0 2.5rem 4rem;">
     <div style="padding:1.3rem 1.8rem;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
 
       <!-- SVG: quadrinho redondo pendurado -->
@@ -1238,7 +1239,8 @@
       // ── RENDER ELEMENTS ──
       const elGrid = document.getElementById('elementos-grid');
       ELEMENTOS.forEach(el => {
-        const card = document.createElement('div');
+        const card = document.createElement('button');
+        card.type = 'button';
         card.className = 'elem-card';
         card.dataset.id = el.id;
         card.innerHTML = `${el.svg}<div class="elem-label">${el.label}</div><div class="elem-check"></div>`;
@@ -1268,7 +1270,9 @@
       // ── RENDER CORES ──
       const cGrid = document.getElementById('cores-grid');
       CORES.forEach(cor => {
-        const btn = document.createElement('div');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('aria-label', cor.label);
         btn.className = 'cor-btn';
         btn.dataset.id = cor.id;
         btn.style.background = cor.hex;
@@ -1832,7 +1836,9 @@
     // thumbs
     lbThumbs.innerHTML = '';
     lbImages.forEach((src, i) => {
-      const d = document.createElement('div');
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Ver foto ' + (i + 1));
       d.className = 'lb-thumb' + (i === lbIndex ? ' active' : '');
       d.innerHTML = '<img src="' + src + '" loading="lazy">';
       d.addEventListener('click', () => { lbIndex = i; renderLightbox(); });
@@ -1880,11 +1886,17 @@
   });
 
   // swipe support
-  let touchStartX = 0;
-  document.getElementById('lightbox-img-wrap').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  let touchStartX = 0, touchStartY = 0, singleTouch = false;
+  document.getElementById('lightbox-img-wrap').addEventListener('touchstart', e => {
+    singleTouch = e.touches.length === 1;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
   document.getElementById('lightbox-img-wrap').addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 40) dx < 0 ? lbNext() : lbPrev();
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (singleTouch && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) dx < 0 ? lbNext() : lbPrev();
+    singleTouch = false;
   });
 
   // ── CATEGORY FILTER ──
@@ -1923,6 +1935,7 @@
   });
 
 </script>
+<script src="responsive.js"></script>
 </body>
 </html>
 
