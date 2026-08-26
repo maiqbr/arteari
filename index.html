@@ -549,6 +549,7 @@
     }
   </style>
   <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="atelier.css" />
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -573,9 +574,10 @@
 <!-- HERO -->
 <main id="conteudo"><section class="hero">
   <div class="hero-bg"></div>
+  <div class="atelier-sparks" aria-hidden="true"><span class="atelier-spark">🎨</span><span class="atelier-spark">🖌️</span><span class="atelier-spark">🐾</span></div>
   <div class="hero-circle"><img src="foto-ari.webp" alt="Ari, artista da Arte Ari" width="828" height="1092" fetchpriority="high" /></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">✦ Pinturas sob encomenda</span>
+    <span class="hero-eyebrow"><span aria-hidden="true">🎨</span> Pinturas sob encomenda</span>
     <h1>Arte que<em>transforma</em>memórias.</h1>
     <p class="hero-desc">
       Pinturas artísticas únicas feitas à mão.
@@ -584,6 +586,7 @@
     <div class="hero-ctas">
       <a href="#produtos" class="btn-primary">Ver Produtos</a>
       <a href="#contato" class="btn-ghost">Pedir Orçamento</a>
+      <button class="motion-control" type="button" data-motion-toggle aria-pressed="false"><span aria-hidden="true">✨</span><span data-motion-label>Pausar animações</span></button>
     </div>
   </div>
 </section>
@@ -678,9 +681,9 @@
   </div>
 
   <div class="categories">
-    <button class="cat-btn active" data-filter="all">Todos</button>
-    <button class="cat-btn" data-filter="pet">Pintura Pet</button>
-    <button class="cat-btn" data-filter="geral">Pintura Geral</button>
+    <button class="cat-btn active" data-filter="all"><span aria-hidden="true">🎨</span>Todos</button>
+    <button class="cat-btn" data-filter="pet"><span aria-hidden="true">🐾</span>Pintura Pet</button>
+    <button class="cat-btn" data-filter="geral"><span aria-hidden="true">🖼️</span>Pintura Geral</button>
   </div>
 
   <div class="products-grid">
@@ -1929,6 +1932,7 @@
 
 
   document.querySelectorAll('.product-card, .feature, .about-text, .cta-box, .contact-text').forEach(el => {
+    el.classList.add('atelier-reveal');
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
@@ -1937,6 +1941,7 @@
 
 </script>
 <script src="responsive.js"></script>
+<script src="atelier-motion.js"></script>
 </body>
 </html>
 
