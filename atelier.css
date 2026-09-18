@@ -5,7 +5,20 @@
 .hero h1 em { position: relative; width: fit-content; }
 .hero h1 em::after { content: ''; position: absolute; bottom: -.06em; left: 2%; width: 96%; height: .06em; border-radius: 50%; background: #c9a84c50; transform: rotate(-2deg); }
 .hero-eyebrow { border-radius: 30px; padding: .55rem .85rem; background: #30231588; }
-.eyebrow-art { width: 27px; height: 27px; object-fit: contain; vertical-align: middle; margin-right: .35rem; }
+.atelier-sparks { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.atelier-spark,.section-spark { position: absolute; display: grid; place-items: center; animation: atelier-float 8s ease-in-out infinite; }
+.atelier-spark img,.section-spark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.spark-notebook { width: 126px; height: 126px; top: 3%; right: 5%; --turn: 5deg; }
+.spark-hanger { width: 108px; height: 108px; bottom: 1%; left: 0; --turn: -9deg; animation-delay: -2.4s; }
+.spark-pets { width: 188px; height: 188px; top: 45%; right: 40%; --turn: -5deg; animation-delay: -4.6s; }
+.about-section,#personalize { position: relative; overflow: hidden; }
+.about-inner,#personalize > div:not(.section-sparks) { position: relative; z-index: 1; }
+.section-sparks { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.section-spark { width: 92px; height: 92px; opacity: .82; }
+.about-sparks .section-spark:first-child { top: 4%; right: 3%; --turn: 8deg; }
+.about-sparks .section-spark:last-child { bottom: 3%; left: 3%; width: 76px; height: 76px; --turn: -8deg; animation-delay: -3s; }
+.personalize-sparks .section-spark:first-child { top: 2%; right: 3%; width: 94px; height: 94px; --turn: 7deg; animation-delay: -1.5s; }
+.personalize-sparks .section-spark:last-child { bottom: 2%; left: 2%; width: 82px; height: 82px; --turn: -6deg; animation-delay: -4s; }
 .hero-circle { border: 2px solid #bd99555c; }
 .hero-ctas { align-items: center; }
 .btn-primary, .btn-ghost { border-radius: 10px; }
@@ -21,13 +34,13 @@
 .cat-btn { border-radius: 30px; transition: background .2s, border-color .2s, transform .2s; }
 .feature { border: 1px solid #57422d80; border-radius: 14px; padding: 1rem; background: #ffffff03; }
 .feature-icon { display: grid; place-items: center; flex-shrink: 0; width: 72px; height: 72px; }
-.feature-art { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 7px 10px #0004); }
+.feature-art { width: 100%; height: 100%; object-fit: contain; }
 .option-heading { display: flex; align-items: center; gap: .45rem; margin-bottom: .9rem; color: var(--cream); font-size: .85rem; font-weight: 500; }
-.option-art { width: 44px; height: 44px; object-fit: contain; margin: -9px 0; filter: drop-shadow(0 6px 8px #0004); }
-.notice-art { width: 64px; height: 64px; flex-shrink: 0; object-fit: contain; filter: drop-shadow(0 7px 10px #0004); }
+.option-art { width: 44px; height: 44px; object-fit: contain; margin: -9px 0; }
+.notice-art { width: 64px; height: 64px; flex-shrink: 0; object-fit: contain; }
 .photo-notice-art { width: 76px; height: 76px; }
 .catalog-callout > div > svg { display: none; }
-.help-icon { width: 68px; height: 68px; flex-shrink: 0; object-fit: contain; filter: drop-shadow(0 7px 10px #0004); }
+.help-icon { width: 68px; height: 68px; flex-shrink: 0; object-fit: contain; }
 .contact-link-icon img { width: 42px; height: 42px; object-fit: contain; display: block; }
 .availability { position: relative; background: linear-gradient(100deg,#21291f,#252017,#28202e); border-block-color: #776237; }
 .availability p { color: #d9c8aa; }
@@ -45,12 +58,13 @@
   .feature:hover { border-color: #a88846; }
   .product-card:hover { border-color: var(--card-accent); box-shadow: 0 12px 32px #0004; }
 }
-@media (prefers-reduced-motion:no-preference) {
-  .hero-eyebrow .eyebrow-art { animation: atelier-wave 3.5s ease-in-out 2; transform-origin: 70% 70%; }
-}
-@keyframes atelier-wave { 0%,60%,100% { transform: rotate(0); } 70% { transform: rotate(-12deg); } 80% { transform: rotate(8deg); } 90% { transform: rotate(-5deg); } }
+@keyframes atelier-float { 0%,100% { transform: translateY(0) rotate(var(--turn, 0deg)); } 50% { transform: translateY(-9px) rotate(calc(var(--turn, 0deg) + 3deg)); } }
 html[data-page-hidden] * { animation-play-state: paused !important; }
 @media (max-width:768px) {
+  .spark-notebook { width: 84px; height: 84px; top: 2%; right: 1%; }
+  .spark-hanger { width: 72px; height: 72px; bottom: 4%; left: 2%; }
+  .spark-pets { width: 112px; height: 112px; top: 52%; right: 25%; }
+  .section-spark { display: none; }
   .feature { padding: .9rem; gap: .9rem; }
   .feature-icon { width: 72px; height: 72px; }
   .option-art { width: 40px; height: 40px; }.help-icon { width: 60px; height: 60px; }.notice-art { width: 58px; height: 58px; }.photo-notice-art { width: 66px; height: 66px; }
@@ -60,4 +74,4 @@ html[data-page-hidden] * { animation-play-state: paused !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .atelier-reveal { opacity: 1 !important; transform: none !important; }
 }
-@media print { .atelier-reveal { opacity: 1 !important; transform: none !important; } }
+@media print { .atelier-sparks,.section-sparks { display: none !important; } .atelier-reveal { opacity: 1 !important; transform: none !important; } }
