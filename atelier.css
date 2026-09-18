@@ -1,7 +1,7 @@
 /* Shared personality layer for the public and internal catalogs. */
 :root { --muted: #b5a58d; --atelier-peach: #e4a17e; --atelier-mint: #93cbb1; --atelier-lilac: #bca5e1; }
 ::selection { background: #c9a84c; color: #17120c; }
-.hero-bg { background: radial-gradient(ellipse at 80% 25%, #603e224d, transparent 55%), radial-gradient(ellipse at 15% 90%, #51406626, transparent 50%), #0f0d0a; }
+.hero-bg { background: radial-gradient(ellipse at 80% 25%, #603e224d, transparent 55%), #0f0d0a; }
 .hero h1 em { position: relative; width: fit-content; }
 .hero h1 em::after { content: ''; position: absolute; bottom: -.06em; left: 2%; width: 96%; height: .06em; border-radius: 50%; background: #c9a84c50; transform: rotate(-2deg); }
 .hero-eyebrow { border-radius: 30px; padding: .55rem .85rem; background: #30231588; }
