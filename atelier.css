@@ -1,9 +1,9 @@
 /* Shared personality layer for the public and internal catalogs. */
 :root { --muted: #b5a58d; --atelier-peach: #e4a17e; --atelier-mint: #93cbb1; --atelier-lilac: #bca5e1; }
-::selection { background: #c9a84c; color: #17120c; }
+::selection { background: #c56b4c; color: #fff9f2; }
 .hero-bg { background: radial-gradient(ellipse at 80% 25%, #603e224d, transparent 55%), #0f0d0a; }
 .hero h1 em { position: relative; width: fit-content; }
-.hero h1 em::after { content: ''; position: absolute; bottom: -.06em; left: 2%; width: 96%; height: .06em; border-radius: 50%; background: #c9a84c50; transform: rotate(-2deg); }
+.hero h1 em::after { content: ''; position: absolute; bottom: -.06em; left: 2%; width: 96%; height: .06em; border-radius: 50%; background: #c56b4c75; transform: rotate(-2deg); }
 .hero-eyebrow { border-radius: 30px; padding: .55rem .85rem; background: #30231588; }
 .atelier-sparks { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .atelier-spark,.section-spark { position: absolute; display: grid; place-items: center; animation: atelier-float 8s ease-in-out infinite; }
@@ -22,9 +22,9 @@
 .hero-circle { border: 2px solid #bd99555c; }
 .hero-ctas { align-items: center; }
 .btn-primary, .btn-ghost { border-radius: 10px; }
-.btn-primary { box-shadow: 0 3px 0 #8e6f2f; }
+.btn-primary { box-shadow: 0 3px 0 #743025; }
 .section-eyebrow { color: var(--atelier-peach); }
-.section-header h2 em { color: #dfb96a; }
+.section-header h2 em { color: var(--gold); }
 .product-card { --card-accent: var(--gold); border-radius: 16px; border-top: 3px solid var(--card-accent); background: linear-gradient(145deg,#ffffff03,transparent),var(--card); }
 .product-card:nth-child(3n + 2) { --card-accent: var(--atelier-mint); }
 .product-card:nth-child(3n) { --card-accent: var(--atelier-lilac); }
