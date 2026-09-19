@@ -6,3 +6,11 @@ compatibility_date = "2026-09-19"
 binding = "DB"
 database_name = "arteari-control-db"
 database_id = "3cfccc78-0dae-46e9-8167-a52a82a43976"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "arteari-catalog-media"
+
+[[routes]]
+pattern = "api.arteari.com.br"
+custom_domain = true
