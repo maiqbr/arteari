@@ -17,9 +17,12 @@
   <meta property="og:image" content="https://arteari.com.br/foto-ari.png" />
   <meta property="og:image:alt" content="Artista da Arte Ari em seu ateliê" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=circular-1" />
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=circular-1" />
-  <link rel="apple-touch-icon" href="favicon.png?v=circular-1" />
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=arte-ari-seal-1" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=arte-ari-seal-white-1" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Arte Ari" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -89,15 +92,8 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--gold);
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--cream); font-style: italic; }
+    .nav-logo { display: grid; place-items: center; width: 58px; height: 58px; text-decoration: none; }
+    .nav-logo img { display: block; width: 56px; height: 56px; object-fit: contain; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-toggle { display: none; background: transparent; border: 1px solid var(--border); color: var(--cream); width: 42px; height: 42px; border-radius: 6px; font-size: 1.25rem; cursor: pointer; }
     .nav-links a {
@@ -556,7 +552,7 @@
 
 <!-- NAV -->
 <nav aria-label="Navegação principal">
-  <a href="/" class="nav-logo" aria-label="Arte Ari — início">Arte<span>Ari</span></a>
+  <a href="/" class="nav-logo" aria-label="Arte Ari — início"><img src="assets/arte-ari-seal.png" alt="Arte Ari" /></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">☰</button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#sobre">Sobre</a></li>

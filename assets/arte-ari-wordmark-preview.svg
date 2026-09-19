@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Arte Ari — estudo de assinatura tipográfica</title>
+  <desc id="desc">Wordmark apenas em texto, com Arte em serifada elegante e Ari em itálico.</desc>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=DM+Sans:wght@500&amp;display=swap');
+    .label{font:500 22px 'DM Sans',Arial,sans-serif;letter-spacing:6px;text-transform:uppercase;fill:#9e8971}
+    .wordmark{font-family:'Cormorant Garamond',Georgia,serif;font-size:238px;font-weight:700;letter-spacing:-10px}
+    .arte{fill:#d4a75e}.ari{fill:#f3e7d1;font-style:italic;font-weight:600}
+    .rule{stroke:#d4a75e;stroke-width:2;opacity:.55}
+  </style>
+  <rect width="1600" height="760" fill="#100d0a"/>
+  <text x="800" y="150" text-anchor="middle" class="label">Assinatura tipográfica</text>
+  <line x1="635" y1="186" x2="965" y2="186" class="rule"/>
+  <text x="800" y="430" text-anchor="middle" class="wordmark"><tspan class="arte">Arte</tspan><tspan class="ari" dx="20">Ari</tspan></text>
+  <text x="800" y="540" text-anchor="middle" class="label" style="font-size:16px;letter-spacing:4px">PINTURAS ARTÍSTICAS SOB ENCOMENDA</text>
+  <rect x="620" y="610" width="360" height="76" rx="12" fill="#f3e7d1"/>
+  <text x="800" y="660" text-anchor="middle" class="wordmark" style="font-size:54px;letter-spacing:-2px"><tspan fill="#513524">Arte</tspan><tspan fill="#513524" font-style="italic" font-weight="600" dx="7">Ari</tspan></text>
+</svg>
