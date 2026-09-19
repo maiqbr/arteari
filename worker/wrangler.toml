@@ -1,0 +1,8 @@
+name = "arteari-catalog-api"
+main = "catalog-api.js"
+compatibility_date = "2026-09-19"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "arteari-control-db"
+database_id = "3cfccc78-0dae-46e9-8167-a52a82a43976"

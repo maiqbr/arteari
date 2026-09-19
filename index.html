@@ -105,11 +105,12 @@
     .nav-wpp {
       display: flex; align-items: center; gap: 0.5rem;
       background: var(--wpp); color: #fff;
-      padding: 0.55rem 1.2rem; border-radius: 50px;
+      padding: 0.55rem 1.2rem; border: 1px solid #5aa978; border-radius: 9px;
       text-decoration: none; font-size: 0.82rem; font-weight: 500;
-      transition: opacity 0.2s;
+      box-shadow: inset 0 1px rgba(255,255,255,0.15), 0 3px 10px rgba(0,0,0,0.18);
+      transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
     }
-    .nav-wpp:hover { opacity: 0.85; }
+    .nav-wpp:hover { opacity: 1; transform: translateY(-1px); box-shadow: inset 0 1px rgba(255,255,255,0.2), 0 6px 14px rgba(0,0,0,0.24); }
 
     /* ── HERO ── */
     .hero {
@@ -179,26 +180,33 @@
       animation: fadeUp 0.8s ease 0.3s both;
     }
     .btn-primary {
-      background: var(--gold);
-      color: #0f0d0a;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #df9874, #b9573d);
+      border: 1px solid #d47a58;
+      color: #fff9f2;
       padding: 0.9rem 2rem;
-      border-radius: 4px;
+      border-radius: 9px;
       text-decoration: none;
       font-weight: 500; font-size: 0.9rem;
       letter-spacing: 0.04em;
-      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 3px 0 #743025, 0 5px 14px rgba(0,0,0,0.16), inset 0 1px rgba(255,255,255,0.16);
+      transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+    .btn-primary:hover { transform: translateY(-1px); filter: saturate(1.08) brightness(1.04); box-shadow: 0 4px 0 #743025, 0 8px 18px rgba(0,0,0,0.22), inset 0 1px rgba(255,255,255,0.2); }
+    .btn-primary:active { transform: translateY(2px); box-shadow: 0 1px 0 #743025, 0 2px 7px rgba(0,0,0,0.18); }
     .btn-ghost {
-      border: 1px solid var(--border);
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid #564137;
+      background: rgba(36,29,23,0.9);
       color: var(--text);
       padding: 0.9rem 2rem;
-      border-radius: 4px;
+      border-radius: 9px;
       text-decoration: none;
       font-size: 0.9rem;
-      transition: border-color 0.2s, transform 0.15s;
+      box-shadow: inset 0 1px rgba(255,255,255,0.05);
+      transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s;
     }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+    .btn-ghost:hover { border-color: #b85f43; background: #2b201b; color: #f7ded2; transform: translateY(-1px); }
 
     /* ── DIVIDER ── */
     .divider {
@@ -1062,14 +1070,15 @@
       .toggle-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(197,107,76,0.12); }
       .product-select-btn {
         width: 100%; margin-top: auto; padding: 0.7rem 1rem;
-        background: transparent; border: 1px solid var(--gold);
-        color: var(--gold); font-family: 'DM Sans', sans-serif;
+        background: #27201b; border: 1px solid #754537;
+        color: #f0b299; font-family: 'DM Sans', sans-serif;
         font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
-        border-radius: 4px; cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        border-radius: 9px; cursor: pointer;
+        box-shadow: inset 0 1px rgba(255,255,255,0.06);
+        transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
       }
-      .product-select-btn:hover { background: var(--gold); color: #0f0d0a; }
-      .product-select-btn.selected { background: var(--gold); color: #0f0d0a; }
+      .product-select-btn:hover { border-color: #c76d4d; background: #33231d; color: #fff4ee; transform: translateY(-1px); }
+      .product-select-btn.selected { background: linear-gradient(135deg,#df9874,#b9573d); border-color:#d47a58; color:#fff9f2; box-shadow:0 3px 0 #743025,0 5px 12px rgba(0,0,0,0.16); }
       #cores-section.disabled { opacity:0.35; pointer-events:none; }
     </style>
 
@@ -1944,6 +1953,7 @@
 </script>
 <script src="responsive.js"></script>
 <script src="atelier-motion.js"></script>
+<script src="catalog-sync.js?v=1"></script>
 </body>
 </html>
 
