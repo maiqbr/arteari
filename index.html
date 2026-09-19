@@ -514,11 +514,8 @@
       padding: 2.5rem 2.5rem;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 900; color: var(--gold);
-    }
-    .footer-logo span { color: var(--cream); font-style: italic; }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo img { display: block; width: 54px; height: 54px; object-fit: contain; }
     .footer-copy { font-size: 0.78rem; color: var(--muted); }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
@@ -1786,7 +1783,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Arte<span>Ari</span></div>
+  <div class="footer-logo"><img src="assets/arte-ari-seal.png" alt="Arte Ari" /></div>
   <div class="footer-copy">© 2026 Arte Ari · Pinturas Artísticas Sob Encomenda</div>
   <div class="footer-links">
     <a href="https://wa.me/5524993154334" target="_blank" rel="noopener noreferrer">WhatsApp</a>
