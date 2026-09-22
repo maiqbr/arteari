@@ -314,7 +314,9 @@
       margin-top: 0.3rem;
     }
     .product-price small { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
-    .product-price:not(:has(small)) { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
+    .product-price:not(:has(small)) { font-size: 0.75rem; color: var(--muted); font-weight: 300; margin-top: auto; }
+    .product-price:not(:has(small)) + .product-wpp,
+    .product-price:not(:has(small)) + .product-select-btn { margin-top: 0; }
     .product-wpp {
       display: flex; align-items: center; justify-content: center; gap: 0.5rem;
       margin-top: auto; padding-top: 1rem;
