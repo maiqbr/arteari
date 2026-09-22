@@ -314,6 +314,7 @@
       margin-top: 0.3rem;
     }
     .product-price small { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
+    .product-price:not(:has(small)) { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
     .product-wpp {
       display: flex; align-items: center; justify-content: center; gap: 0.5rem;
       margin-top: auto; padding-top: 1rem;
@@ -386,6 +387,7 @@
     #lightbox-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); }
     #lightbox-price { color: var(--gold); font-size: 1.1rem; font-weight: 500; margin-top: 0.2rem; }
     #lightbox-price small { font-size: 0.72rem; color: var(--muted); font-weight: 300; display: block; }
+    #lightbox-price.quote-price { font-size: 0.72rem; color: var(--muted); font-weight: 300; }
     #lightbox-wpp {
       display: flex; align-items: center; gap: 0.5rem;
       background: var(--wpp); color: #fff;
@@ -1833,6 +1835,7 @@
     lbIndex = 0;
     lbTitle.textContent = card.dataset.title;
     lbPrice.textContent = card.dataset.price;
+    lbPrice.classList.toggle('quote-price', card.dataset.price === 'Vamos criar seu orçamento?');
     lbWpp.href = 'https://wa.me/5524993154334?text=Tenho+interesse+em:+' + card.dataset.wpp;
     renderLightbox();
     overlay.classList.add('open');
@@ -1949,7 +1952,7 @@
 </script>
 <script src="responsive.js"></script>
 <script src="atelier-motion.js"></script>
-<script src="catalog-sync.js?v=2"></script>
+<script src="catalog-sync.js?v=3"></script>
 </body>
 </html>
 
